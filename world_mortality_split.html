@@ -31,20 +31,20 @@
         var dates = []
         var datasets = []
 
-        datasets.push({ label: "Mortality_2020", data: [] })
+        datasets.push({ label: "Mortality_2020", borderColor: 'rgb(200, 0, 0)', data: [] })
         var after2020 = country.filter(x => x.year >= 2020)
         for (let i in after2020) {
             dates.push(i)
             datasets[0].data.push(after2020[i].deaths)
         }
 
-        datasets.push({ label: "Mortality_2018", data: [] })
+        datasets.push({ label: "Mortality_2018", borderColor: 'rgb(0, 200, 0)', data: [] })
         var after2018 = country.filter(x => (x.year >= 2018 && x.year < 2020))
         for (let i in after2018) {
             datasets[1].data.push(after2018[i].deaths)
         }
 
-        datasets.push({ label: "Mortality_2016", data: [] })
+        datasets.push({ label: "Mortality_2016", borderColor: 'rgb(0, 0, 200)', data: [] })
         var after2016 = country.filter(x => (x.year >= 2016 && x.year < 2018))
         for (let i in after2016) {
             datasets[2].data.push(after2016[i].deaths)
