@@ -1,0 +1,64 @@
+<script src="http://code.jquery.com/jquery-3.3.1.slim.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.21/jquery.csv.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
+
+<body style="margin: 0px">
+    <canvas id="chart" width="800" height="400"></canvas>
+</body>
+
+
+<script>
+    var chart = document.getElementById("chart").getContext("2d")
+    var chartOptions = {
+        responsive: true,
+        legend: { labels: { fontSize: 15 } },
+        scales: {
+            yAxes: [{ ticks: { reverse: false, fontSize: 15 } }],
+            xAxes: [{ ticks: { fontSize: 15 } }],
+        }
+    }
+
+    async function defaultChart() {
+        const urlParams = new URLSearchParams(window.location.search)
+        var countrySelection = urlParams.get("country")
+        if (!countrySelection) countrySelection = "United States"
+
+        var response = await fetch("./world_mortality.csv")
+        var data = $.csv.toObjects(await response.text())
+        var country = data.filter(x => x.country_name.toUpperCase() == countrySelection.toUpperCase())
+
+        var dates = []
+        var datasets = []
+
+        datasets.push({ label: "Mortality_2020", data: [] })
+        var after2020 = country.filter(x => x.year >= 2020)
+        for (let i in after2020) {
+            dates.push(i)
+            datasets[0].data.push(after2020[i].deaths)
+        }
+
+        datasets.push({ label: "Mortality_2018", data: [] })
+        var after2018 = country.filter(x => (x.year >= 2018 && x.year < 2020))
+        for (let i in after2018) {
+            datasets[1].data.push(after2018[i].deaths)
+        }
+
+        datasets.push({ label: "Mortality_2016", data: [] })
+        var after2016 = country.filter(x => (x.year >= 2016 && x.year < 2018))
+        for (let i in after2016) {
+            datasets[2].data.push(after2016[i].deaths)
+        }
+
+        var options = {
+            type: "line",
+            data: {
+                labels: dates,
+                datasets: datasets
+            },
+            options: chartOptions
+        }
+        new Chart(chart, options)
+    }
+    window.onload = defaultChart
+</script>
