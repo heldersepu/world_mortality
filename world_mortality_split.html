@@ -7,17 +7,8 @@
     <canvas id="chart" width="800" height="400"></canvas>
 </body>
 
-
 <script>
     var chart = document.getElementById("chart").getContext("2d")
-    var chartOptions = {
-        responsive: true,
-        legend: { labels: { fontSize: 15 } },
-        scales: {
-            yAxes: [{ ticks: { reverse: false, fontSize: 15 } }],
-            xAxes: [{ ticks: { fontSize: 15 } }],
-        }
-    }
 
     async function defaultChart() {
         const urlParams = new URLSearchParams(window.location.search)
@@ -31,20 +22,20 @@
         var dates = []
         var datasets = []
 
-        datasets.push({ label: "Mortality_2020", borderColor: 'rgb(200, 0, 0)', data: [] })
+        datasets.push({ label: "Mortality 2020/2021", borderColor: 'rgb(200, 0, 0)', data: [] })
         var after2020 = country.filter(x => x.year >= 2020)
         for (let i in after2020) {
-            dates.push(i)
+            dates.push(Number(i) + 1)
             datasets[0].data.push(after2020[i].deaths)
         }
 
-        datasets.push({ label: "Mortality_2018", borderColor: 'rgb(0, 200, 0)', data: [] })
+        datasets.push({ label: "Mortality 2018/2019", borderColor: 'rgb(0, 200, 0)', data: [] })
         var after2018 = country.filter(x => (x.year >= 2018 && x.year < 2020))
         for (let i in after2018) {
             datasets[1].data.push(after2018[i].deaths)
         }
 
-        datasets.push({ label: "Mortality_2016", borderColor: 'rgb(0, 0, 200)', data: [] })
+        datasets.push({ label: "Mortality 2016/2017", borderColor: 'rgb(0, 0, 200)', data: [] })
         var after2016 = country.filter(x => (x.year >= 2016 && x.year < 2018))
         for (let i in after2016) {
             datasets[2].data.push(after2016[i].deaths)
@@ -56,7 +47,14 @@
                 labels: dates,
                 datasets: datasets
             },
-            options: chartOptions
+            options: {
+                responsive: true,
+                legend: { labels: { fontSize: 15 } },
+                scales: {
+                    yAxes: [{ ticks: { reverse: false, fontSize: 15 } }],
+                    xAxes: [{ ticks: { fontSize: 6 } }],
+                }
+            }
         }
         new Chart(chart, options)
     }
