@@ -1,7 +1,7 @@
 # World Mortality Dataset
 
 This repository contains country-level data on all-cause mortality in 2015–2021 collected from various sources, see below.   
-We are currently providing data for 116 countries and territories.   
+We are currently providing data for 120 countries and territories.   
 We welcome any contributions.
 
 If you use this data, please cite it as:    
@@ -33,14 +33,13 @@ Notes:
 ## Sources
 
 ### Human Mortality Database, Short-Term Mortality Fluctuations
-We collect the weekly [STMF data](https://mpidr.shinyapps.io/stmortality/) for the following countries: Australia\*, Austria, Belgium, Bulgaria, Chile, Croatia, Czechia, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Italy, Latvia, Lithuania, Luxembourg, Netherlands, New Zealand, Norway, Poland, Portugal, South Korea, Slovakia, Slovenia, Spain, Switzerland, United Kingdom (England & Wales + Northern Ireland + Scotland).
+We collect the weekly [STMF data](https://mpidr.shinyapps.io/stmortality/) for the following countries: Austria, Belgium, Bulgaria, Chile, Croatia, Czechia, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Italy, Latvia, Lithuania, Luxembourg, Netherlands, New Zealand, Norway, Poland, Portugal, South Korea, Slovakia, Slovenia, Spain, Switzerland, United Kingdom (England & Wales + Northern Ireland + Scotland).
 
 We do not use Taiwan data from STMF because the monthly data (see below) is more frequently updated. 
 
 For some European countries, STMF sometimes has more up-to-date (and backward revised) data than EuroStat, as it culls data from countries' NSOs. 
 We harmonize the data between these two sources by defaulting to STMF wherever possible, and appending additional from Eurostat if available. 
 
-\* Australia's data (all years) is "Doctor Certified Deaths" rather than "All Registered Deaths". These constitute about 85%-90% of all deaths in Australia. 
 
 
 ### Eurostat
@@ -54,6 +53,12 @@ French Guiana, Guadeloupe, Martinique, Mayotte, Réunion: https://ec.europa.eu/e
 2016 to 2018: UNData: http://data.un.org/Data.aspx?d=POP&f=tableCode:65;countryCode:8&c=2,3,6,8,10,12,13,14&s=_countryEnglishNameOrderBy:asc,refYear:desc,areaCode:asc&v=1
 
 2015, 2019 onward: Email correspondence with [Albania Institute of Statistics](http://www.instat.gov.al/en/).
+
+### Algeria (monthly)
+2018 to 2020: Office National des Statistiques
+[Démographie Algérienne](https://www.ons.dz/spip.php?rubrique182).
+
+2018-2019 values were digitized using [WebPlotDigitizer](https://github.com/ankitrohatgi/WebPlotDigitizer). These are shown with one significant digit to emphasize this.
 
 
 ### Andorra (monthly)
@@ -90,6 +95,13 @@ See publication on Natural Movement: https://www.estadistica.ad/serveiestudis/no
 
 2021: [Monthly deaths data](https://www.facebook.com/permalink.php?story_fbid=2005136112986868&id=143358652497966
 ) was digitized using [WebPlotDigitizer](https://github.com/ankitrohatgi/WebPlotDigitizer)
+
+
+### Australia (weekly)
+2015 onward: Australian Bureau of Statistics (ABS) - [Provisional Mortality Statistics](https://www.abs.gov.au/statistics/health/causes-death/provisional-mortality-statistics/latest-release).   
+
+On April 28th 2022, ABS released weekly data as all deaths (doctor + coroner), such that a correction is no longer needed. WMD now reports and analyzes total deaths for Australia. 
+
 
 
 ### Azerbaijan (monthly)
@@ -132,11 +144,11 @@ July 2020 to March 2021: https://www.currenttime.tv/a/smertnost-v-belarusi/31401
 
 
 ### Brazil (monthly)
-2015 to 2019: Brazil Ministry of Health Sistema de Informação sobre Mortalidade (SIM): https://opendatasus.saude.gov.br/dataset/sistema-de-informacao-sobre-mortalidade-sim-1979-a-2019  
+2015 to 2019: Brazil Ministry of Health Sistema de Informação sobre Mortalidade (SIM): https://opendatasus.saude.gov.br/dataset/sim-1979-2019 
 
-2020: SIM 2020: https://opendatasus.saude.gov.br/dataset/sistema-de-informacao-sobre-mortalidade  
+2020 - 2021: https://opendatasus.saude.gov.br/dataset/sim-2020-2021
 
-2021: Brazilian Civil Registry (RC): https://transparencia.registrocivil.org.br/registros  
+2021 October onward: Brazilian Civil Registry (RC): https://transparencia.registrocivil.org.br/registros  
 In Brazil, the RC is the most up to date source of all-cause mortality. However, it is downward biased compared to the official final figures from SIM due to delayed registration.   
 In order to account for this, the monthly counts from the CR are corrected using the ratio between total deaths in SIM 2020 (1,581,645) to total deaths in RC 2020 (1,464,243). 
 
@@ -148,6 +160,10 @@ We thank [Marcelo Oliveira](https://github.com/capyvara) and [Otavio Ranzani](ht
 2015 onward: [Department of Economic Planning and Statistics - Vital Statistics](http://www.deps.gov.bn/SitePages/Vital%20Statistics.aspx)
 
 
+### Cabo Verde (monthly)
+2015 to 2020: [National Institute of Statistics - Vital Statistics](https://ine.cv/publicacoes/estatisticas-vitais-nascimentos-obitos-casamentos-2019-2020/) 
+
+
 ### Canada (weekly)
 StatCan - https://www150.statcan.gc.ca/n1/pub/71-607-x/71-607-x2021028-eng.htm
 
@@ -157,9 +173,9 @@ StatCan has more up to date data than present in World Mortality, yet it is inco
 
 
 ### Colombia (weekly)
-https://www.dane.gov.co/index.php/estadisticas-por-tema/demografia-y-poblacion/informe-de-seguimiento-defunciones-por-covid-19  
-Direct link to the latest table in Excel (May 2021): https://www.dane.gov.co/files/investigaciones/poblacion/defunciones-covid19/anexos-defunciones-covid-nal-2020-02mar-2021-09may.xlsx
-Here we sum values in three categories: Natural, Violenta (Violent), and En estudio (unclassified deaths). 
+Colombia Health Dashboard: https://experience.arcgis.com/experience/d9bfa6a650a249099b5f290a6c454804/?draft=true
+
+Queried from https://github.com/sociedatos. 
 
 
 ### Costa Rica (monthly)
@@ -184,8 +200,6 @@ Note: ONE has information on deaths up to end of 2020, yet deaths in the Dominic
 2018: https://www.ecuadorencifras.gob.ec/category/poblacion-y-demografia/  
 2019: https://www.ecuadorencifras.gob.ec/defunciones-generales-2019/  
 2020 onward: https://www.registrocivil.gob.ec/cifrasdefuncion/  
-Direct link to the latest table in XLS:  
-https://www.registrocivil.gob.ec/wp-content/uploads/downloads/2021/06/Defunciones_Generales_act_20_JUN_2021.xlsx
 
 Ecuador provides daily death counts. We summed them up to form weekly death counts.
 
@@ -194,8 +208,11 @@ We thank [Andrés N. Robalino](https://github.com/andrab/ecuacovid) for providin
 
 ### Egypt (monthly)
 2015 to 2019: http://data.un.org/Data.aspx?d=POP&f=tableCode%3a65%3bcountryCode%3a818&c=2,3,6,8,10,12,13,14&s=_countryEnglishNameOrderBy:asc,refYear:desc,areaCode:asc&v=1  
+
 2020: Monthly Bulletin of the Egyptian NSO (CAPMAS): https://www.capmas.gov.eg/Pages/Publications.aspx?page_id=5107&Year=23518 & Egypt in Figures 2021 - Vital:
 https://www.capmas.gov.eg/Pages/Publications.aspx?page_id=5104&Year=23595 & Statistics: It is expected that the population of Egypt: https://www.capmas.gov.eg/Pages/GeneralNews.aspx?page_id=1
+
+2021: Egypt in Figures 2022 - Vital: https://www.capmas.gov.eg/Pages/StaticPages.aspx?page_id=5035
 
 
 ### El Salvador (monthly)
@@ -238,15 +255,13 @@ Access by: Base de datos, select appropriate year under Año and then select Def
 
 2021: Public Information Request from [RENAP](https://www.renap.gob.gt/solicitud-de-informacion-publica-decreto-57-2008).
 
-2021 info is by date of occurrence, and had strong edge effects on last week of 2020 and first week of 2021 and on Easter. The values for these weeks were averaged to avoid this. 
-
 
 ### Hong Kong (monthly)
 Hong Kong Census and Statistics Department:  
 2015 to 2018: https://www.censtatd.gov.hk/hkstat/sub/sp160.jsp?productCode=FA100094    
 2019 onward: Hong Kong Monthly Digest of Statistics, https://www.censtatd.gov.hk/hkstat/sub/sp110.jsp?productCode=B1010002
 
-On June 2nd, 2021 - We obtained monthly number of deaths in Hong Kong by month of occurrence rather than month of registration, via an email correspondence with [Hong Kong Census and Statistics Department](http://censtatd.gov.hk/). 
+On June 2nd, 2021 - We obtained monthly number of deaths in Hong Kong by month of occurrence rather than month of registration, via an email correspondence with [Hong Kong Census and Statistics Department](http://censtatd.gov.hk/). All monthly values for 2015 onward are now by month of occurrence of death. 
 
 
 ### Iran (weekly)
@@ -318,7 +333,6 @@ We thank [Dren Morina](https://github.com/Nerdm) for his help on this.
 
 2017 - 2021: [Lebanon Ministry of Public Health Hospital-based Cause Of Death Notification System](https://www.moph.gov.lb/en/Pages/8/327/statistical-bulletins#/en/Pages/8/20380/hospital-based-cause-of-death-statistics)
 
-2020 - 2021 weekly hospital-deaths data was digitized using [WebPlotDigitizer](https://github.com/ankitrohatgi/WebPlotDigitizer) and then turned to monthly. 
 Monthly hospital deaths have been corrected to total deaths using the ratio between total deaths to hospital deaths in 2019 (1.34). 
 
 
@@ -394,14 +408,7 @@ ISEE has released some data for monthly deaths in 2021, but only for September o
 
 
 ### Nicaragua (monthly)
-2015 to 2019: Nicaragua Instituto Nacional de Información de Desarrollo (INIDE) Compendio de Estadísticas Vitales: https://www.inide.gob.ni/Home/Compendios
-
-2020 January to June: https://lalupa.press/2020/07/21/nicaragua-reporta-preocupante-aumento-del-40-en-defunciones-en-111-dias/
-
-2020 July to August: http://mapasalud.minsa.gob.ni/
-
-To obtain mortality counts for July and August, we used the MAPASALUD January-August count, and subtracted the January-June counts from the LALUPA source, assuming a uniform distrbution between July and August.
-
+2015 to 2020: Nicaragua Instituto Nacional de Información de Desarrollo (INIDE) Compendio de Estadísticas Vitales: https://www.inide.gob.ni/Home/Compendios
 
 
 ### Oman (monthly)
@@ -460,6 +467,8 @@ Starting with 2021, there are no data by date of death yet available, we we are 
 
 Starting from mid-2021, when announcing the registered number of deaths in another month, Russian authorities began announcing approximate preliminary number for the most recent month, as an increase/decrease in percentage. We compute the corresponding number of deaths and report it with one decimal digit, to show that it was computed by us and not directly reported. Example for October 2021: https://tass.ru/obschestvo/12802275. 
 
+### Saint Kitts and Nevis (monthly)
+2016-2020: Department of Statistics Vital Statistics: https://www.stats.gov.kn/topics/demographic-social-statistics/births-and-deaths/
 
 
 ### San Marino (monthly)
@@ -486,6 +495,11 @@ Department of Statistics Singapore: https://www.tablebuilder.singstat.gov.sg/pub
 2015 onward: South Africa Medical Research Council (SAMRC): https://www.samrc.ac.za/reports/report-weekly-deaths-south-africa.
 
 
+### Suriname (monthly)
+2015 to 2019: [UNData](http://data.un.org/Data.aspx?d=POP&f=tableCode%3a65%3bcountryCode%3a740&c=2,3,6,8,10,12,13,14&s=_countryEnglishNameOrderBy:asc,refYear:desc,areaCode:asc&v=1)
+
+2020: Email correspondence with with [Suriname General Bureau of Statistics](https://statistics-suriname.org/).
+
 ### Sweden (weekly)
 Statistics Sweden - Preliminary Statistics on Deaths (2015 onward, daily):
 https://scb.se/en/About-us/news-and-press-releases/follow-the-preliminary-statistics-on-deaths/.
@@ -503,33 +517,22 @@ Taiwan Ministry of the Interior Monthly Bulletin of Interior Statistics: https:/
 Taiwan also has weekly data from STMF, but it is less updated, so we opted to keep the monthly data for now.
 
 
-### Tajikistan (quarterly)
-2015 to 2019: [Tajikistan Agency on Statistics Demographic Yearbook of the Republic of Tajikistan 2021 (paper copy)](https://www.stat.tj/en/news/publications/demographic-yearbook-of-the-republic-of-tajikistan). 
-Monthly counts were aggregated to quarterly counts. 
-
-2020 Annual: [Health care in the Republic of Tajikistan](https://www.stat.tj/en/news/publications/health-care-in-the-republic-of-tajikistan).
-
-2020 Q1 to Q4: [UNData MBS (as crude death rates)](https://unstats.un.org/unsd/mbs/app/DataView.aspx?tid=3&cid=762&yearfrom=2020&yearto=2021&p=A).
-
-The sum of the quarterly values obtained through the UNDATA MBS 2020 was substantially lower than the annual value (42,626) reported in the statistical annual report. We scaled the quarterly values by a corrective factor to make them sum to the correct annual value. We give the resulting values with one decimal digit to emphasize our corrective procedure.
-
-2021 Q1 to Q4: [UNData MBS (as crude death rates)](https://unstats.un.org/unsd/mbs/app/DataView.aspx?tid=3&cid=762&yearfrom=2020&yearto=2021&p=A).
-CDRs were transformed to death counts using UNDATA's mid-2021 population count.
+### Tajikistan (monthly)
+2015 to 2020: [Tajikistan Agency on Statistics Demographic Yearbook of the Republic of Tajikistan 2022 (paper copy)](https://www.stat.tj/en/news/publications/-demographic-yearbook-of-the-republic-of-tajikistan-30th-anniversary-of-the-state-independence-of-the-republic-of-tajikistan-was-released). 
 
 We wish to thank the reporters from [Eurasianet](https://eurasianet.org/) for providing us this information.
 
 
-### Transnistria (monthly)
+### Transnistria (monthly)  
 Transnistria State Statistics Service Statistical information bulletin: http://mer.gospmr.org/gosudarstvennaya-sluzhba-statistiki/informacziya/informaczionnyj-statisticheskij-byulleten.html  
 
 Social and economic development of the PMR: http://mer.gospmr.org/gosudarstvennaya-sluzhba-statistiki/informacziya/o-soczialno-ekonomicheskom-polozhenii-pmr.html  
 
 
 
-### Tunisia (weekly)
-Tunisia National Institute of statistics Recent dynamics of mortality in Tunisia: http://www.ins.tn/publication/dynamique-recente-de-la-mortalite-en-tunisie
+### Tunisia (monthly)
+2015 onward: Tunisia National Institute of statistics Monthly Bulletin: http://www.ins.tn/en/publication/statistics-monthly-bulletin-february-2022
 
-The data from the report's figure 1 was digitized using [WebPlotDigitizer](https://github.com/ankitrohatgi/WebPlotDigitizer). 
 
 
 ### Uruguay (monthly)
@@ -556,7 +559,7 @@ Access by: Statistical Information -> Population and migration -> Number of live
 
 2019 to 2020: Uzbekistan State Committee on Statistics - Demographic situation January - December (Direct link to PDF): https://www.stat.uz/images/uploads/docs/demografiya_uz_18012021.pdf
 
-2021: https://www.stat.uz/images/uploads/reliz2021/demografiyauzb0721uz.pdf
+2021: https://stat.uz/images/uploads/reliz2021/demogpressreliz270122uz3.pdf
 
 
 ### United States (weekly)
